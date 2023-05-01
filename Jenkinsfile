@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('git checkout')
         {
-            step{
+            steps{
                 git branch: 'main', url: 'https://github.com/vachan209/gcp-terraform.git'
             }
         }
