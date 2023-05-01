@@ -18,9 +18,9 @@ pipeline {
                 sh 'terraform validate'
             }
         }
-         stage('terraform validate'){
+         stage('terraform plan'){
             steps{
-                sh 'terraform validate'
+                sh 'terraform plan'
             }
         }
     }
