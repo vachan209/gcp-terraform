@@ -6,7 +6,7 @@ variable "region" {
   type = string
 }
 
-variable "credentials_path" {
+variable "gcp_creds_path" {
   type = string
 }
 
