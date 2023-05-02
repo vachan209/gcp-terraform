@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        GCP_CREDS = ""
+    }
     stages {
         stage('git checkout')
         {
@@ -20,7 +22,8 @@ pipeline {
                     mkdir -p $WORKSPACE/config/gcloud
                     sudo chown -R jenkins:jenkins $WORKSPACE
                     sudo chmod -R u+w $WORKSPACE
-                     `cat $gcp_cred`
+                    GCP_CREDENTIALS= `cat $gcp_cred`
+                    echo "$GCP_CREDENTIALS"
                """
                 }
             }
