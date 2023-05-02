@@ -22,8 +22,8 @@ pipeline {
                     mkdir -p $WORKSPACE/config/gcloud
                     sudo chown -R jenkins:jenkins $WORKSPACE
                     sudo chmod -R u+w $WORKSPACE
-                    GCP_CREDENTIALS= `cat $gcp_cred`
-                    echo "$GCP_CREDENTIALS"
+                    `cat $gcp_cred` >> $WORKSPACE/config/gcloud/credentials.json
+                    
                """
                 }
             }
