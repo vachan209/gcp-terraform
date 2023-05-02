@@ -17,8 +17,8 @@ pipeline {
             steps{
                 withCredentials([file(credentialsId: 'credentials', variable: 'gcp_cred')]){
                     sh """
-               sudo mkdir -p $WORKSPACE/.config/gcloud
-               echo `$gcp_cred` > $WORKSPACE/.config/gcloud/credentials.json
+               sudo mkdir -p $WORKSPACE/config/gcloud
+              
                """
                 }
             }
