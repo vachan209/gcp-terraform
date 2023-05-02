@@ -13,6 +13,16 @@ pipeline {
                 sh 'terraform init'
             }
         }
+        stage('gcp credentials'){
+            steps{
+                withCredentials([file(credentialsId: 'credentials', variable: 'gcp_cred')]){
+                    sh """
+               mkdir -p $WORKSPACE/.config/gcloud
+               echo `$gcp_cred` > $WORKSPACE/.config/gcloud/credentials.json
+               """
+                }
+            }
+        }
            
     }
 }
