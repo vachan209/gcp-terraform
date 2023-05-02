@@ -32,7 +32,7 @@ pipeline {
         stage('terraform plan'){
             steps{
                 sh """
-                 terraform apply ---auto-approve -var 'gcp_creds_path=$WORKSPACE/config/gcloud'
+                 terraform apply -auto-approve -var 'gcp_creds_path=$WORKSPACE/config/gcloud'
                 """
             }
         }
