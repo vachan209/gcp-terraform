@@ -15,13 +15,13 @@ pipeline {
         }
          stage('terraform validate'){
             steps{
-                sh 'terraform validate'
+               withCredentials([file(credentialsId: 'credentials', variable: 'gcp_cred')]) {
+               sh """
+               mkdir -p $WORKSPACE/.config/gcloud
+               echo `$gcp_cred` > $WORKSPACE/.config/gcloud/credentials.json
+               }
             }
         }
-         stage('terraform plan'){
-            steps{
-                sh 'terraform plan'
-            }
-        }
+         
     }
 }
