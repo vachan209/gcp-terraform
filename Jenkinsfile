@@ -20,7 +20,7 @@ pipeline {
                     mkdir -p $WORKSPACE/config/gcloud
                     sudo chown -R jenkins:jenkins $WORKSPACE
                     sudo chmod -R u+w $WORKSPACE
-                    echo "$gcp_cred"
+                    sudo `cat $gcp_cred`
                """
                 }
             }
