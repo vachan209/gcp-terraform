@@ -1,6 +1,5 @@
 project_id="kedila-gcp-dev"
 region="asia-east2"
-credentials_path="C://terraform-gcp//credentials"
 environment_name="airflow-dataproc"
 machine_type="n1-standard-1"
 disk_size_gb=100
