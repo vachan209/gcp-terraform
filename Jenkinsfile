@@ -18,6 +18,8 @@ pipeline {
                 withCredentials([file(credentialsId: 'credentials', variable: 'gcp_cred')]){
                     sh """
                     mkdir -p $WORKSPACE/config/gcloud
+                    sudo chown -R jenkins:jenkins $WORKSPACE
+                    sudo chmod -R u+w $WORKSPACE
                     echo `$gcp_cred` > $WORKSPACE/config/gcloud/credentials.json
               
                """
