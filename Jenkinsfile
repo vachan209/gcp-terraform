@@ -31,9 +31,11 @@ pipeline {
         }
         stage('terraform plan'){
             steps{
+               dir('terraform-v1.4/cloud_composer'){
                 sh """
                  terraform apply -auto-approve -var 'gcp_creds_path=$WORKSPACE/config/gcloud'
                 """
+               }
             }
         }
 
