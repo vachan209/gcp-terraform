@@ -39,15 +39,6 @@ pipeline {
             }
         }
 
-        stage ('build and run docker image'){
-            steps{
-                sh """
-                docker build -t git_to_gcs --build-arg KEYFILE="config/gcloud" .
-                docker run git_to_gcs:latest
-                """
-            }
-        }
-
            
     }
 }
